@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复利计算器</title>
+	<style type="text/css">
+		table {
+			border-collapse:collapse;
+			margin:100px auto;			
+		}
+		td, input, button{
+			border: 1px solid lightgray;
+		}
+		input, button{
+			margin: 5px;
+			width: 150px;
+		}
+	</style>
+</head>
+<body>	
+	<table>
+		<tr>
+			<td>起始资金</td>
+			<td><input type="text" id="balance" value="10000">¥</td>
+		</tr>
+		<tr>
+			<td>每年收益</td>
+			<td><input type="text" id="rate" value="5">%</td>
+		</tr>
+		<tr>
+			<td>复利年数</td>
+			<td><input type="text" id="year" value="10">年</td>
+		</tr>
+		<tr>
+			<td>每年追加资金</td>
+			<td><input type="text" id="addBalance" value="10000">¥</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><button onclick="calc()">计算</button></td>			
+		</tr>
+		<tr>
+			<td>本金和</td>
+			<td><input type="text" id="totalBalance">¥</td>
+		</tr>
+		<tr>
+			<td>利息和</td>
+			<td><input type="text" id="totalInterest">¥</td>
+		</tr>
+		<tr>
+			<td>本息和</td>
+			<td><input type="text" id="total">¥</td>
+		</tr>		
+	</table>
+	<script type="text/javascript">
+		//从输入框取值
+		function getIntValue(id)	{			
+			return parseInt(document.getElementById(id).value);
+		}
+		//向输入框传入值
+		function setValue(id, value) {
+			document.getElementById(id).value = value;
+		}
+		//取幂
+		function p(base, power) {
+			if(power == 0) {
+				return 1;
+			}
+			var result = 1;
+			for (var i = 0; i < power; i++) {
+				result *= base;
+			}
+			return result;
+		}
+		//取复利率
+		function fuli(rate, year) {
+			var result = 0;
+			for (var i = year; i >= 1; i--) {
+				result += p(rate, i);
+			}
+			return result;
+		}
+		function calc() {
+			var balance = getIntValue("balance");
+			var rate = getIntValue("rate");
+			var year = getIntValue("year");
+			var addBalance = getIntValue("addBalance");
+			var totalBalance = balance + addBalance * (year - 1);
+			var total = addBalance*fuli((1+rate/100), year-1) + balance * p((1+rate/100), year);
+			var totalInterest = total - totalBalance;
+			setValue("totalBalance", totalBalance);
+			setValue("totalInterest", totalInterest);
+			setValue("total", total);			
+		}
+	</script>
+</body>
+</html>

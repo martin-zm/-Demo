@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态下拉菜单</title>
+	<style>
+		a{
+			font-size:14px;
+			color: CornflowerBlue;
+			text-decoration: none;
+		}
+		div.menu {
+			width:80px;
+			border: 1px solid lightgray;
+			margin-top:15px; 
+			position: absolute;
+			/*left: 80px;*/
+			top: 20px;
+		}
+		#weapon {
+			left: 20px;
+		}
+		#armor {
+			left: 50px;
+		}
+		#hero {
+			left: 80px;
+		}
+		div.menu a{
+			display:block;
+			font-size:14px;
+			font-family:宋体;
+			color: #888;
+			text-decoration: none;
+			padding:10px 0px 10px 15px;
+		}
+		 
+		div.menu a:hover
+		{
+			background-color: #f1f1f1;
+		} 
+	</style>
+</head>
+
+<body> 
+<script type="text/javascript">
+	function weapon() {
+		document.getElementById("weapon").style.display = "inline";
+		document.getElementById("armor").style.display = "none";
+		document.getElementById("hero").style.display = "none";
+	}
+	function armor() {
+		document.getElementById("weapon").style.display = "none";
+		document.getElementById("armor").style.display = "inline";
+		document.getElementById("hero").style.display = "none";
+	}
+	function hero() {
+		document.getElementById("weapon").style.display = "none";
+		document.getElementById("armor").style.display = "none";
+		document.getElementById("hero").style.display = "inline";
+	}
+
+</script>
+<a href="#nowhere" onmousemove="weapon()"> 武器 </a> 
+<a href="#nowhere" onmousemove="armor()"> 护甲 </a> 
+<a href="#nowhere" onmousemove="hero()"> 英雄 </a> 
+ 
+<div class="menu" id="weapon" style="display: none;">
+<a href="#nowhere"> 大剑 </a> 
+<a href="#nowhere"> 屠龙 </a> 
+<a href="#nowhere"> 倚天 </a> 
+<a href="#nowhere"> 七孔砖 </a> 
+</div>
+
+<div class="menu" id="armor" style="display: none;">
+<a href="#nowhere"> 胸甲 </a> 
+<a href="#nowhere"> 护腕 </a> 
+<a href="#nowhere"> 头盔 </a> 
+<a href="#nowhere"> 鞋子 </a> 
+</div>
+
+<div class="menu" id="hero" style="display: none;">
+<a href="#nowhere"> 盖伦 </a> 
+<a href="#nowhere"> 提莫 </a> 
+<a href="#nowhere"> 安妮 </a> 
+<a href="#nowhere"> 死哥 </a> 
+</div>
+ 
+<div style="height:200px"></div>
+</body>
+</html>

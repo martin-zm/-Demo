@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>科学计数法</title>
+</head>
+<body>
+	<input type="text" id="left">
+	+
+	<input type="text" id="right">
+	=
+	<input type="text" id="result">
+	<input type="button" value="运算" onclick="add()">
+	<script type="text/javascript">
+		function add() {
+			document.getElementById("result").value = 
+				new Number(parseInt(document.getElementById("left").value) * parseInt(document.getElementById("right").value)).toExponential();
+		}
+	</script>
+</body>
+</html>

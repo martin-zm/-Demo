@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串排序</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>随机输入英文字符串：</td>
+			<td><textarea id="inputString">what a great day</textarea></td>
+		</tr>
+		<tr>
+			<td>正排序结果：</td>
+			<td><textarea id="positiveSequence"></textarea></td>
+		</tr>
+		<tr>
+			<td>倒排序结果：</td>
+			<td><textarea id="negativeSequence"></textarea></td>
+		</tr>		
+		<tr align="center">
+			<td colspan="2"><button onclick="sortByLetter()">按照字母排序</button></td>
+		</tr>
+		<tr align="center">
+			<td colspan="2"><button onclick="sortByWord()">按照单词排序</button></td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		function getValue(id) {
+			return document.getElementById(id).value;
+		}
+		function setValue(id, value) {
+			document.getElementById(id).value = value;
+		}
+		function sortByLetter() {
+			var tmp = new Array();
+			var inputString = getValue("inputString");
+			tmp = inputString.split("");
+			setValue("positiveSequence", tmp.sort().join(""));
+			setValue("negativeSequence", tmp.sort().reverse().join(""));
+		}
+		function sortByWord() {
+			var tmp = new Array();
+			var inputString = getValue("inputString");
+			tmp = inputString.split(" ");
+			setValue("positiveSequence", tmp.sort().join(" "));
+			setValue("negativeSequence", tmp.sort().reverse().join(" "));
+		}
+	</script>
+</body>
+</html>

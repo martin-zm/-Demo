@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串替换工具</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td colspan="2">字符串替换工具</td>			
+		</tr>
+		<tr>
+			<td>源字符串：</td>
+			<td><textarea id="baseString">example</textarea></td>
+		</tr>
+		<tr>
+			<td>查询：</td>
+			<td><input type="text" value="a" id="find"></td>
+		</tr>
+		<tr>
+			<td>替换为：</td>
+			<td><input type="text" value="e" id="replace"></td>
+		</tr>
+		<tr>
+			<td>替换结果：</td>
+			<td><textarea id="result"></textarea></td>
+		</tr>
+		<tr align="center">
+			<td><button onclick="replace()">替换</button></td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		function replace() {
+			document.getElementById("result").value = 
+				new String(document.getElementById("baseString").value).
+					replace(new RegExp(document.getElementById("find").value, "g") , 
+						document.getElementById("replace").value);
+		}
+	</script>
+</body>
+</html>

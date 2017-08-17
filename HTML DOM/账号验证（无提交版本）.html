@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>账号验证无提交版本</title>
+</head>
+<body>	
+	<script>
+	function check(){
+	var name = document.getElementById("name").value;
+	var noMessage= document.getElementById("noMessage");
+	var yesMessage= document.getElementById("yesMessage");
+	noMessage.style.display="none";
+	yesMessage.style.display="none";
+	if(0!=name.length){
+	   var firstChar = name.charAt(0);
+	   if('a'==firstChar || 'A'==firstChar)
+	    noMessage.style.display="inline";
+	   else
+	    yesMessage.style.display="inline";
+	  }
+	}
+	</script>
+	<!-- oninput可以实现实时监控输入变化，但是对于IE9以下兼容性并不好！-->
+	<input id="name" oninput="check()">	
+	<span id="noMessage" style="color:red;display:none;">账号已经存在</span>
+	<span id="yesMessage" style="color:green;display:none;">账号可以使用</span>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>账号验证</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function verification() {
+			//document.getElementById("promptYes").display = "none";
+			//document.getElementById("promptNo").display = "none";
+			var account = document.getElementById("account").value;
+			if(account.charAt(0) == "A" || account.charAt(0) == "a") {
+				document.getElementById("prompt").innerHTML = "账号已经存在";
+				document.getElementById("prompt").style = "color: red";
+			} else {
+				document.getElementById("prompt").innerHTML = "账号可以使用";
+				document.getElementById("prompt").style = "color: blue";
+			}
+		}
+	</script>
+	<input type="text" id="account">
+	<input type="button" value="验证" onclick="verification()">
+	<span id="prompt"></span>	
+	<!--
+	<span id="promptYes" style="color: red;">账号已经存在</span>
+	<span id="promptNo" style="color: blue;">账号可以使用</span>
+	-->
+	
+</body>
+</html>

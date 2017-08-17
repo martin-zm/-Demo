@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checkbox全选反选</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function allSelected() {
+			var selected = document.getElementsByClassName("selected");
+			if(document.getElementsByClassName("allSelected")[0].checked) {	
+				for (i in selected) {
+					selected[i].checked = true;
+				}
+			} else {
+				for (i in selected) {
+					selected[i].checked = false;
+				}
+			}
+		}
+		function reverseSelected() {
+				var selected = document.getElementsByClassName("selected");
+				for (i in selected) {
+					selected[i].checked = !selected[i].checked;
+				}
+		}
+	</script>
+	<input type="checkbox" class="allSelected" onclick="allSelected()"> 全选<br>
+	<input type="checkbox" class="selected"> tokyo hot<br>
+	<input type="checkbox" class="selected"> dota<br>
+	<input type="checkbox" class="selected"> lol<br>
+	<input type="checkbox" class="selected"> wow<br>
+	<input type="checkbox" class="selected"> warcraft<br>
+	<input type="checkbox" class="selected"> diablo<br>
+	<span style="color: blue;" onclick="reverseSelected()">反选</span>
+</body>
+</html>
